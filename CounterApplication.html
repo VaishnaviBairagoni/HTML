@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Counter Application</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    .counter {
+      font-size: 2em;
+      margin: 20px 0;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 5px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Counter Application</h1>
+  <div class="counter" id="counterValue">0</div>
+  <button onclick="updateCounter(1)">Increment</button>
+  <button onclick="updateCounter(-1)">Decrement</button>
+
+  <script>
+    let counter = 0;
+
+    function updateCounter(value) {
+      counter += value;
+      document.getElementById('counterValue').innerHTML = counter;
+    }
+  </script>
+</body>
+</html>

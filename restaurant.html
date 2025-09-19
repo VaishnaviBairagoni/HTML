@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Heritage Bites | Classic Taste, Modern Vibes</title>
+  <meta name="description" content="Heritage Bites — a neighborhood restaurant serving timeless recipes with a modern twist. View our menu highlights, hours, location, and contact details." />
+  <meta property="og:title" content="Heritage Bites" />
+  <meta property="og:description" content="Timeless recipes. Modern vibes. See our menu, hours, and location." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1200&auto=format&fit=crop" />
+  <meta name="theme-color" content="#8a3ffc" />
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #0f0f12;
+      --bg-elev: #14141a;
+      --text: #f6f7fb;
+      --muted: #b8b9c3;
+      --brand: #8a3ffc;
+      --brand-2: #ff6a3d;
+      --ok: #2ecc71;
+      --warn: #ffb020;
+      --radius: 1.25rem;
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#ffffff; --bg-elev:#f6f7fb; --text:#101114; --muted:#50515a;
+      }
+    }
+    *, *::before, *::after{ box-sizing: border-box; }
+    html:focus-within{ scroll-behavior: smooth; }
+    body{
+      margin:0; background:var(--bg); color:var(--text);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
+      line-height:1.6; font-size:16px;
+    }
+    img{ max-width:100%; display:block; }
+    a{ color:inherit; text-decoration: none; }
+    .container{ width:min(1100px, 92%); margin-inline:auto; }
+    .skip-link{ position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
+    .skip-link:focus{ position:fixed; left:1rem; top:1rem; width:auto; height:auto; padding:.6rem 1rem; background:#000; color:#fff; z-index:9999; border-radius:.5rem; }
+    header{
+      position:sticky; top:0; z-index:50; backdrop-filter: blur(12px);
+      background: color-mix(in srgb, var(--bg), transparent 25%);
+      border-bottom: 1px solid color-mix(in srgb, var(--muted), transparent 70%);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:.75rem 0;
+    }
+    .brand{ display:flex; align-items:center; gap:.75rem; }
+    .logo{ width:42px; height:42px; border-radius:50%; display:grid; place-items:center; background: radial-gradient(120% 120% at 30% 30%, var(--brand) 0%, var(--brand-2) 60%, #333 100%); box-shadow:0 6px 24px rgba(138,63,252,.35); }
+    .logo svg{ width:24px; height:24px; fill:white; }
+    .brand h1{ font-family:"Playfair Display", serif; font-weight:700; font-size:1.35rem; letter-spacing:.2px; margin:0; }
+    nav ul{ list-style:none; display:flex; gap:1rem; padding:0; margin:0; }
+    nav a{ padding:.55rem .8rem; border-radius:.65rem; color:var(--text); }
+    nav a:focus, nav a:hover{ outline:2px solid transparent; background: color-mix(in srgb, var(--brand), transparent 82%); }
+
+    .hero{ display:grid; gap:1.5rem; align-items:center; padding:3rem 0; grid-template-columns: 1fr; }
+    .hero .copy h2{ font-size:clamp(2rem, 4.8vw, 3.2rem); line-height:1.15; margin:.25rem 0 .75rem; font-family:"Playfair Display", serif; }
+    .eyebrow{ display:inline-block; font-weight:700; letter-spacing:.12em; text-transform:uppercase; font-size:.78rem; color:var(--muted); }
+    .cta{ display:flex; gap:.75rem; flex-wrap:wrap; margin-top:1rem; }
+    .btn{
+      display:inline-flex; align-items:center; gap:.5rem; padding:.8rem 1rem; border-radius:999px; border:1px solid transparent; cursor:pointer; font-weight:600;
+    }
+    .btn.primary{ background:linear-gradient(135deg, var(--brand), var(--brand-2)); color:white; box-shadow:0 8px 26px rgba(138,63,252,.35); }
+    .btn.ghost{ background:transparent; border-color: color-mix(in srgb, var(--muted), transparent 60%); }
+    .hero .media{ border-radius: var(--radius); overflow:hidden; box-shadow: 0 20px 60px rgba(0,0,0,.35); }
+
+    .section{ padding:3rem 0; }
+    .section h3{ font-family:"Playfair Display", serif; font-size:clamp(1.6rem, 3vw, 2.1rem); margin:.25rem 0 1rem; }
+
+    .cards{ display:grid; grid-template-columns: repeat(12, 1fr); gap:1rem; }
+    .card{ grid-column: span 12; background:var(--bg-elev); border:1px solid color-mix(in srgb, var(--muted), transparent 65%); padding:1rem; border-radius: var(--radius); }
+    .card h4{ margin:.25rem 0 .5rem; font-size:1.1rem; }
+
+    .menu-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:1rem; }
+    .menu-item{ background:var(--bg-elev); border:1px solid color-mix(in srgb, var(--muted), transparent 65%); border-radius: var(--radius); overflow:hidden; display:grid; grid-template-rows: 160px auto; }
+    .menu-item img{ width:100%; height:100%; object-fit:cover; }
+    .menu-item .info{ padding:.9rem; }
+    .price{ font-weight:700; }
+
+    .hours table{ width:100%; border-collapse: collapse; }
+    .hours th, .hours td{ text-align:left; padding:.6rem .4rem; border-bottom:1px dashed color-mix(in srgb, var(--muted), transparent 60%);
+    }
+
+    .two-col{ display:grid; grid-template-columns: 1fr; gap:1rem; }
+    .map{ border:0; width:100%; height:360px; border-radius: var(--radius); }
+
+    .gallery{ display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap:.6rem; }
+    .gallery img{ border-radius:.75rem; aspect-ratio: 4/3; object-fit: cover; }
+
+    .footer{ padding:2rem 0; border-top: 1px solid color-mix(in srgb, var(--muted), transparent 70%); color:var(--muted); font-size:.95rem; }
+
+    .top-btn{ position: fixed; right:1rem; bottom:1rem; padding:.7rem .9rem; border-radius:999px; background:var(--bg-elev); border:1px solid color-mix(in srgb, var(--muted), transparent 65%); box-shadow:0 10px 30px rgba(0,0,0,.25); }
+
+    @media (min-width: 860px){
+      .hero{ grid-template-columns: 1.1fr .9fr; }
+      .cards .card{ grid-column: span 4; }
+      .two-col{ grid-template-columns: 1.1fr .9fr; }
+    }
+
+    /* Accessibility helpers */
+    :focus{ outline: 3px solid color-mix(in srgb, var(--brand), white 40%); outline-offset: 2px; }
+    @media (prefers-reduced-motion: reduce){
+      *{ animation: none !important; transition: none !important; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Heritage Bites",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "123 Heritage Street",
+      "addressLocality": "Hyderabad",
+      "addressRegion": "TS",
+      "postalCode": "500001",
+      "addressCountry": "IN"
+    },
+    "telephone": "+91-98765-43210",
+    "servesCuisine": ["Indian", "Hyderabadi", "Continental"],
+    "openingHoursSpecification": [
+      {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"11:00","closes":"22:30"},
+      {"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday"],"opens":"09:00","closes":"23:30"}
+    ],
+    "url": "https://example.com",
+    "priceRange": "₹₹",
+    "acceptsReservations": "True"
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <header role="banner">
+    <div class="container nav" aria-label="Primary">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a5 5 0 0 0-5 5v5a5 5 0 1 0 10 0V7a5 5 0 0 0-5-5Zm0 20a1.5 1.5 0 0 1-1.5-1.5h3A1.5 1.5 0 0 1 12 22Z"/></svg>
+        </div>
+        <h1>Heritage Bites</h1>
+      </div>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#hours">Hours</a></li>
+          <li><a href="#location">Location</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a class="btn primary" href="#reserve">Reserve</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero container" aria-label="Intro">
+      <div class="copy">
+        <span class="eyebrow" aria-label="Tagline">Timeless recipes, modern vibes</span>
+        <h2>Classic taste, served with a wink.</h2>
+        <p>
+          Family recipes that salute the past. Playful plating that nods to the future. Pull up a chair—your comfort food just went couture.
+        </p>
+        <div class="cta">
+          <a class="btn primary" href="#menu" aria-label="View menu">View Menu</a>
+          <a class="btn ghost" href="#location" aria-label="Get directions">Get Directions</a>
+        </div>
+      </div>
+      <div class="media" aria-hidden="true">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1526318472351-c75fcf070305?q=80&w=1400&auto=format&fit=crop" alt="Warm table spread of dishes in a cozy restaurant" />
+      </div>
+    </section>
+
+    <!-- HIGHLIGHTS -->
+    <section class="section container" aria-label="Highlights">
+      <div class="cards" role="list">
+        <article class="card" role="listitem">
+          <h4>Chef’s Specials</h4>
+          <p>From smoky tandoor nights to Sunday biryani bliss—our rotating specials keep things spicy.</p>
+        </article>
+        <article class="card" role="listitem">
+          <h4>Fresh & Local</h4>
+          <p>We partner with neighborhood vendors. Seasonal produce, peak flavor, zero pretentiousness.</p>
+        </article>
+        <article class="card" role="listitem">
+          <h4>All Welcome</h4>
+          <p>Wheelchair-friendly, screen-reader tested, and diet-friendly options clearly marked.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- MENU -->
+    <section id="menu" class="section container" aria-labelledby="menu-title">
+      <h3 id="menu-title">Menu Highlights</h3>
+      <div class="menu-grid" role="list">
+        <article class="menu-item" role="listitem">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1604909052850-31c7eb1f5b79?q=80&w=1200&auto=format&fit=crop" alt="Butter chicken served with naan"/>
+          <div class="info">
+            <h4>Butter Chicken</h4>
+            <p>Creamy tomato gravy, tender chicken, finished with kasuri methi.</p>
+            <p class="price">₹349</p>
+          </div>
+        </article>
+        <article class="menu-item" role="listitem">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1617195737496-7e04ba7c66a2?q=80&w=1200&auto=format&fit=crop" alt="Veg biryani in a handi"/>
+          <div class="info">
+            <h4>Veg Dum Biryani</h4>
+            <p>Saffron-kissed basmati, crisp onions, garden veggies, sealed and slow-cooked.</p>
+            <p class="price">₹299</p>
+          </div>
+        </article>
+        <article class="menu-item" role="listitem">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1617191519003-3e3c69a16bfa?q=80&w=1200&auto=format&fit=crop" alt="Grilled paneer tikka skewers"/>
+          <div class="info">
+            <h4>Paneer Tikka</h4>
+            <p>Charred edges, soft heart. Hung curd marinade with spice harmony.</p>
+            <p class="price">₹279</p>
+          </div>
+        </article>
+        <article class="menu-item" role="listitem">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1200&auto=format&fit=crop" alt="Chocolate lava cake"/>
+          <div class="info">
+            <h4>Molten Lava Cake</h4>
+            <p>Old-school dessert, erupting with nostalgia and chocolate.</p>
+            <p class="price">₹199</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- HOURS & RESERVE -->
+    <section id="hours" class="section container two-col" aria-labelledby="hours-title">
+      <div class="hours">
+        <h3 id="hours-title">Hours of Operation</h3>
+        <table aria-describedby="hours-note">
+          <thead>
+            <tr><th scope="col">Day</th><th scope="col">Open</th><th scope="col">Close</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Mon – Fri</th><td>11:00</td><td>22:30</td></tr>
+            <tr><th scope="row">Saturday</th><td>09:00</td><td>23:30</td></tr>
+            <tr><th scope="row">Sunday</th><td>09:00</td><td>23:30</td></tr>
+          </tbody>
+        </table>
+        <p id="hours-note" class="muted">Kitchen closes 30 minutes before closing time.</p>
+      </div>
+      <div id="reserve" class="card" aria-label="Reservations">
+        <h3>Reserve a Table</h3>
+        <form id="reserveForm" aria-describedby="reserve-help">
+          <label for="res-name">Name</label>
+          <input id="res-name" name="name" required type="text" autocomplete="name"/>
+
+          <label for="res-phone">Phone</label>
+          <input id="res-phone" name="phone" type="tel" placeholder="98765 43210" pattern="[0-9\s\-\+]{10,15}" required autocomplete="tel"/>
+
+          <label for="res-date">Date</label>
+          <input id="res-date" name="date" type="date" required />
+
+          <label for="res-time">Time</label>
+          <input id="res-time" name="time" type="time" required />
+
+          <label for="res-guests">Guests</label>
+          <input id="res-guests" name="guests" type="number" min="1" max="20" value="2" required />
+
+          <p id="reserve-help" class="muted">We’ll text to confirm. Walk-ins welcome.</p>
+          <button class="btn primary" type="submit">Book Now</button>
+        </form>
+        <p id="reserveStatus" role="status" aria-live="polite" style="margin-top:.6rem"></p>
+      </div>
+    </section>
+
+    <!-- LOCATION -->
+    <section id="location" class="section container two-col" aria-labelledby="loc-title">
+      <div>
+        <h3 id="loc-title">Find Us</h3>
+        <p>
+          123 Heritage Street, Hyderabad, TS 500001 • <a href="tel:+919876543210" aria-label="Call Heritage Bites">+91 98765 43210</a><br/>
+          <a href="mailto:hello@heritagebites.example" aria-label="Email Heritage Bites">hello@heritagebites.example</a>
+        </p>
+        <ul>
+          <li>Free parking after 6 PM</li>
+          <li>Wheelchair accessible entrance & restroom</li>
+          <li>Vegan, Jain, and gluten-free options available</li>
+        </ul>
+      </div>
+      <div>
+        <iframe class="map" title="Map to Heritage Bites" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Charminar,Hyderabad&output=embed"></iframe>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="section container" aria-label="Gallery">
+      <h3>Vibe Check</h3>
+      <div class="gallery">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=1200&auto=format&fit=crop" alt="Cozy dining room with warm lighting"/>
+        <img loading="lazy" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1200&auto=format&fit=crop" alt="Close-up of a plated dish"/>
+        <img loading="lazy" src="https://images.unsplash.com/photo-1526312426976-593c2ebd6513?q=80&w=1200&auto=format&fit=crop" alt="Chef torching a dessert"/>
+        <img loading="lazy" src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1200&auto=format&fit=crop" alt="Friends enjoying a meal together"/>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section container two-col" aria-labelledby="contact-title">
+      <div>
+        <h3 id="contact-title">Contact Us</h3>
+        <p>Questions, catering, collabs? Drop a line. We read everything.</p>
+        <p><strong>General:</strong> hello@heritagebites.example</p>
+        <p><strong>Careers:</strong> careers@heritagebites.example</p>
+        <p><strong>Phone:</strong> +91 98765 43210</p>
+      </div>
+      <div class="card" aria-label="Contact form">
+        <form id="contactForm">
+          <label for="name">Full Name</label>
+          <input id="name" name="name" required type="text" autocomplete="name" />
+
+          <label for="email">Email</label>
+          <input id="email" name="email" required type="email" autocomplete="email" />
+
+          <label for="msg">Message</label>
+          <textarea id="msg" name="message" rows="5" required></textarea>
+
+          <label><input type="checkbox" id="updates" name="updates" /> Keep me posted about specials</label>
+          <button class="btn primary" type="submit">Send Message</button>
+        </form>
+        <p id="contactStatus" role="status" aria-live="polite" style="margin-top:.6rem"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Heritage Bites. Built with ❤️ for real ones who love real food.</p>
+      <p>
+        <a href="#">Privacy</a> • <a href="#">Terms</a> • <a href="#main">Back to top</a>
+      </p>
+    </div>
+  </footer>
+
+  <a href="#main" class="top-btn" aria-label="Back to top">↑</a>
+
+  <style>
+    /* simple form styles without a framework */
+    form{ display:grid; gap:.6rem; }
+    input, textarea{
+      width:100%; background:var(--bg); color:var(--text); border:1px solid color-mix(in srgb, var(--muted), transparent 60%);
+      border-radius:.65rem; padding:.7rem .8rem; font:inherit;
+    }
+    label{ font-weight:600; }
+    .muted{ color:var(--muted); }
+  </style>
+
+  <script>
+    // current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // basic, accessible fake-submit handlers
+    function fakeSend(form){
+      const data = Object.fromEntries(new FormData(form).entries());
+      // pretend to send; in a real app you would POST to your backend here
+      return new Promise(resolve=> setTimeout(()=> resolve(data), 600));
+    }
+
+    document.getElementById('contactForm').addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      const status = document.getElementById('contactStatus');
+      status.textContent = 'Sending…';
+      const data = await fakeSend(e.target);
+      status.textContent = `Thanks, ${data.name}! We\'ll reply to ${data.email}.`;
+      e.target.reset();
+    });
+
+    document.getElementById('reserveForm').addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      const status = document.getElementById('reserveStatus');
+      status.textContent = 'Booking…';
+      const data = await fakeSend(e.target);
+      status.textContent = `Table for ${data.guests} on ${data.date} at ${data.time}. We\'ll text you!`;
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping List</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .container {
+      max-width: 400px;
+      margin: auto;
+      text-align: center;
+    }
+    input[type="text"] {
+      width: 70%;
+      padding: 10px;
+      margin: 10px 0;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      background-color: #f8f9fa;
+      margin: 5px 0;
+      padding: 10px;
+      border: 1px solid #dee2e6;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Shopping List</h1>
+    <input type="text" id="itemInput" placeholder="Enter an item" />
+    <button onclick="addItem()">Add Item</button>
+    <ul id="shoppingList"></ul>
+  </div>
+
+  <script>
+    // Function to add items to the shopping list
+    function addItem() {
+      const inputField = document.getElementById('itemInput');
+      const itemText = inputField.value.trim();
+      if (itemText !== '') {
+        const shoppingList = document.getElementById('shoppingList');
+        shoppingList.innerHTML += `<li>${itemText}</li>`;
+        inputField.value = ''; // Clear the input field after adding
+      } else {
+        alert('Please enter a valid item.');
+      }
+    }
+  </script>
+</body>
+</html>

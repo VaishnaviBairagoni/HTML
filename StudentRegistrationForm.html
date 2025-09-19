@@ -1,0 +1,127 @@
+g<!DOCTYPE html>
+<html lanng="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration Form</title>
+<style>
+body {
+background: linear-gradient(to right,white,red );
+font-family: 'Courier New', Courier,monospace;
+display: flex;
+justify-content: center;
+align-items: center;
+min-height: 100vh;
+margin: 0;
+}
+
+.container {
+background-color: #a93f3f;
+padding: 30px;
+border-radius: 10px;
+box-shadow: 0 2px 5px rgba(74, 55, 55, 0.1);
+width: 400px;
+}
+
+h2 {
+text-align: center;
+margin-bottom: 20px;
+}
+
+.form-group {
+margin-bottom: 20px;
+}
+
+label {
+display: block;
+margin-bottom: 5px;
+font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"] {
+width: 100%;
+padding: 10px;
+border: 1px solid #ccc;
+border-radius: 5px;
+box-sizing: border-box;
+}
+
+.gender-options {
+display: flex;
+justify-content: space-around;
+}
+
+input[type="radio"] {
+margin-right: 5px;
+}
+
+button {
+background-color: linear-gradient(to right, #c3c7d7, #b9b3d9);
+color: #fff;
+padding: 12px 20px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+width: 100%;
+font-weight: bold;
+transition: background-color 0.3s ease;
+}
+
+button:hover {
+background-color: #8e8e8e;
+}
+</style>
+</head>
+<form>
+<div>
+<center><h1> Student Registration Form</h1></center>
+<hr>
+<label> First Name</label>
+<input type="text" name="firstname" placeholder="firstname" size="10" required/>
+<br> <br> 
+<label> Last Name</label>
+<input type="text" name="lastname" placeholder="lastname" size="15" required/>
+<br> <br> 
+<div>
+
+<div>
+<label>
+CSE: </label>
+<select>
+<option value=" "></option> 
+<option value="HCI"> Human Computer Interface </option>
+<option value="SML"> Statistical Machine Learning</option>
+<option value="DV"> Data Visualisation</option>
+</select>
+</div><br>
+</label>
+<div> 
+<label>Gender:</label>
+<br>
+<input type="radio" value="Male" name="gender" checked> Male <br>
+<input type="radio" value="Female" name="gender" checked> Female <br>
+<input type="radio" value="Other" name="gender" checked> Other <br>
+</div>
+<br>
+<label> Phone Number:</label>
+<input type="text" name="country code" placeholder="country code" value="+91" size="2"/>
+<input type="tel" name="phone number"  size="10" pattern="[6-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]" placeholder="1234567890" required>
+<br><br>
+Current Address: 
+<text area cols="80" rows="5" placeholder="Current Address" value="address" required>
+</text area> <br> <br>
+<label for="my life"> Drop your Certificates:</label>
+<input type="file" id="mylife" name="myfile"> <br> <br>
+<label for="email"> <b> Email </b> </label>
+<input type="email" placeholder="Enter Email" name="email" required>
+<br> <br>
+<label for="psw"> <b> Password </b> </label>
+<input type="password" placeholder="Enter Password" name="psw" required>
+<br> <br>
+<button type="Register" class="registration" > Register</button> 
+</form>
+</body>
+</html>
